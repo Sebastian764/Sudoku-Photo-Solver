@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no">
+        <title>Sudoku</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    
+    <body>
+        <h1>Sudoku</h1>
+        <hr>
+        <button type="button" id="solve">Solve</button>
+        <button type="button" id="clear">Clear</button>
+        
+        <!-- Form for file upload -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept=".jpg, .png, .jpeg" id="fileInput">
+            <input type="submit" value="Upload">
+        </form>
+        
+        
+        <!-- 9x9 board -->
+        <div id="board"></div>
+        <br>
+        <div id="digits">
+        </div>
+        <h2 id="errors">{{ error_message }}</h2>
+        
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+
+
+</html>
